@@ -88,3 +88,23 @@ class TuneSetRelationship(models.Model):
     )
     position = models.IntegerField()
 
+class SetPerformanceRelationship(models.Model):
+    def __str__(self):
+        return f"{self.set.name} in {self.performance.name}"
+
+    def __repr__(self):
+        return f"{self.set.name} in {self.performance.name} (SetPerformanceRelationship {self.id})"
+
+    class Meta:
+        verbose_name = "Set-Performance Relationship"
+
+    set = models.ForeignKey(
+        Set,
+        on_delete=models.CASCADE,
+    )
+    performance = models.ForeignKey(
+        Performance,
+        on_delete=models.CASCADE,
+    )
+    position = models.IntegerField()
+
