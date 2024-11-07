@@ -80,11 +80,11 @@ class TuneSetRelationship(models.Model):
 
     tune = models.ForeignKey(
         Tune,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
     )
     set = models.ForeignKey(
         Set,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
     )
     position = models.IntegerField()
 
@@ -100,11 +100,11 @@ class SetPerformanceRelationship(models.Model):
 
     set = models.ForeignKey(
         Set,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
     )
     performance = models.ForeignKey(
         Performance,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
     )
     position = models.IntegerField()
 
