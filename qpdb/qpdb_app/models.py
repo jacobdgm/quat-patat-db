@@ -86,6 +86,5 @@ class TuneSetRelationship(models.Model):
         Set,
         on_delete=models.CASCADE,
     )
-
-    
+    position = models.IntegerField()
 
