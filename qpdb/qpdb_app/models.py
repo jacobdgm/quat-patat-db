@@ -68,3 +68,24 @@ class Performance(models.Model):
         blank=True,
     )
 
+class TuneSetRelationship(models.Model):
+    def __str__(self):
+        return f"{self.tune.name} in {self.set.name}"
+
+    def __repr__(self):
+        return f"{self.tune.name} in {self.set.name} (TuneSetRelationship {self.id})"
+
+    class Meta:
+        verbose_name = "Tune-Set Relationship"
+
+    tune = models.ForeignKey(
+        Tune,
+        on_delete=models.CASCADE,
+    )
+    set = models.ForeignKey(
+        Set,
+        on_delete=models.CASCADE,
+    )
+
+    
+
