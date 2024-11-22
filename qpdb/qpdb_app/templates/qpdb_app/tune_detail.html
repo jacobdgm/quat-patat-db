@@ -1,7 +1,29 @@
 <head>
-Tune Detail View
+<title>{{tune.name}} | QuatPatatDB</title>
 </head>
 
 <body>
-Tune Detail View
+
+<h1>{{tune.name}}</h1>
+
+<p>
+{% if tune.type %}
+    <b>Type:</b> {{ tune.type }}
+{% endif %}
+
+<p>
+{% if tune.key %}
+    <b>Key:</b> {{ tune.key }}
+{% endif %}
+
+<p>
+{% if tune.composer %}
+    <b>Composer:</b> {{ tune.composer }}
+{% endif %}
+
+<p>
+{% if tune.notes %}
+    <b>Notes:</b> {{ tune.notes }}
+{% endif %}
+
 </body>
