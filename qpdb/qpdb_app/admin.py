@@ -1,15 +1,15 @@
 from django.contrib import admin
 from .models import (
     Tune,
-    Set,
+    Medley,
     Performance,
-    TuneSetRelationship,
-    SetPerformanceRelationship,
+    TuneMedleyRelationship,
+    MedleyPerformanceRelationship,
 )
 
 admin.site.register(Tune)
-admin.site.register(Set)
+admin.site.register(Medley)
 admin.site.register(Performance)
-admin.site.register(TuneSetRelationship)
-admin.site.register(SetPerformanceRelationship)
+admin.site.register(TuneMedleyRelationship)
+admin.site.register(MedleyPerformanceRelationship)
 

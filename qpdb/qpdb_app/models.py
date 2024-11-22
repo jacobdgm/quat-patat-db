@@ -27,12 +27,12 @@ class Tune(models.Model):
         blank=True,
     )
     
-class Set(models.Model):
+class Medley(models.Model):
     def __str__(self):
         return self.name
 
     def __repr__(self):
-        return f"{self.name} (Set {self.id})"
+        return f"{self.name} (Medley {self.id})"
 
     name = models.CharField(
         max_length=255,
@@ -68,38 +68,38 @@ class Performance(models.Model):
         blank=True,
     )
 
-class TuneSetRelationship(models.Model):
+class TuneMedleyRelationship(models.Model):
     def __str__(self):
-        return f"{self.tune.name} in {self.set.name}"
+        return f"{self.tune.name} in {self.medley.name}"
 
     def __repr__(self):
-        return f"{self.tune.name} in {self.set.name} (TuneSetRelationship {self.id})"
+        return f"{self.tune.name} in {self.medley.name} (TuneMedleyRelationship {self.id})"
 
     class Meta:
-        verbose_name = "Tune-Set Relationship"
+        verbose_name = "Tune-Medley Relationship"
 
     tune = models.ForeignKey(
         Tune,
         on_delete=models.PROTECT,
     )
-    set = models.ForeignKey(
-        Set,
+    medley = models.ForeignKey(
+        Medley,
         on_delete=models.PROTECT,
     )
     position = models.IntegerField()
 
-class SetPerformanceRelationship(models.Model):
+class MedleyPerformanceRelationship(models.Model):
     def __str__(self):
-        return f"{self.set.name} in {self.performance.name}"
+        return f"{self.medley.name} in {self.performance.name}"
 
     def __repr__(self):
-        return f"{self.set.name} in {self.performance.name} (SetPerformanceRelationship {self.id})"
+        return f"{self.medley.name} in {self.performance.name} (MedleyPerformanceRelationship {self.id})"
 
     class Meta:
-        verbose_name = "Set-Performance Relationship"
+        verbose_name = "Medley-Performance Relationship"
 
-    set = models.ForeignKey(
-        Set,
+    medley = models.ForeignKey(
+        Medley,
         on_delete=models.PROTECT,
     )
     performance = models.ForeignKey(
