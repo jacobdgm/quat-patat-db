@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
-from qpdb_app.models import Tune
+from qpdb_app.models import Tune, Medley
 
 index_html = """
     <title>
@@ -20,3 +20,7 @@ def index(request):
 class TuneDetailView(DetailView):
     model = Tune
     template_name = "qpdb_app/tune_detail.html"
+
+class MedleyDetailView(DetailView):
+    model = Medley
+    template_name = "qpdb_app/medley_detail.html"
