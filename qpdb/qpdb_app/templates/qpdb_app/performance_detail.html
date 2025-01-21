@@ -6,13 +6,18 @@
 
 <h1>{{ performance.name }}</h1>
 
-<p>
+{% if performance.date %}
+    <p>
+    <b>Date:</b> {{ performance.date }}
+{% endif %}
+
 {% if performance.type %}
+    <p>
     <b>Type:</b> {{ performance.type }}
 {% endif %}
 
-<p>
 {% if performance.medleyperformancerelationship_set.exists %}
+    <p>
     The following medleys comprise {{ performance.name }}:
     <ol>
         {% for relationship in performance.medleyperformancerelationship_set.all|dictsort:"position" %}
@@ -25,11 +30,12 @@
         {% endfor %}
     </ol>
 {% else %}
+    <p>
     There are no medleys in {{ performance.name }}
 {% endif %}
 
-<p>
 {% if performance.notes %}
+    <p>
     <b>Notes:</b> {{ performance.notes }}
 {% endif %}
 
