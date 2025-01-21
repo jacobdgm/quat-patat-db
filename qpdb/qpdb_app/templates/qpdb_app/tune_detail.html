@@ -31,7 +31,11 @@
     {{ tune.name }} is a member of the following medleys:
     <ul>
     {% for relationship in tune.tunemedleyrelationship_set.all %}
-        <li>{{ relationship.medley.name }}</li>
+        <li>
+            <a href="{% url 'medley-detail-view' relationship.medley.id %}">
+                {{ relationship.medley.name }}
+            </a>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
