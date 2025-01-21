@@ -6,23 +6,23 @@
 
 <h1>{{tune.name}}</h1>
 
-<p>
 {% if tune.type %}
+    <p>
     <b>Type:</b> {{ tune.type }}
 {% endif %}
 
-<p>
 {% if tune.key %}
+    <p>
     <b>Key:</b> {{ tune.key }}
 {% endif %}
 
-<p>
 {% if tune.composer %}
+    <p>
     <b>Composer:</b> {{ tune.composer }}
 {% endif %}
 
-<p>
 {% if tune.notes %}
+    <p>
     <b>Notes:</b> {{ tune.notes }}
 {% endif %}
 
@@ -32,9 +32,9 @@
     <ul>
     {% for relationship in tune.tunemedleyrelationship_set.all %}
         <li>
-            <a href="{% url 'medley-detail-view' relationship.medley.id %}">
-                {{ relationship.medley.name }}
-            </a>
+            <a
+                href="{% url 'medley-detail-view' relationship.medley.id %}"
+            >{{ relationship.medley.name }}</a>
         </li>
     {% endfor %}
     </ul>

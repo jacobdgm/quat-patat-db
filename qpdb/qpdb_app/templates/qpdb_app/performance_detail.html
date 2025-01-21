@@ -16,21 +16,20 @@
     <b>Type:</b> {{ performance.type }}
 {% endif %}
 
+<p>
 {% if performance.medleyperformancerelationship_set.exists %}
-    <p>
     The following medleys comprise {{ performance.name }}:
     <ol>
         {% for relationship in performance.medleyperformancerelationship_set.all|dictsort:"position" %}
             <li>
-                <a href="{% url "medley-detail-view" relationship.medley.id %}">
-                    {{ relationship.medley.name }}
-                </a>
+                <a
+                    href="{% url "medley-detail-view" relationship.medley.id %}"
+                >{{ relationship.medley.name }}</a>
                 <small>({{ relationship.position }})</small>
             </li>
         {% endfor %}
     </ol>
 {% else %}
-    <p>
     There are no medleys in {{ performance.name }}
 {% endif %}
 

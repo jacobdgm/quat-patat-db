@@ -6,8 +6,8 @@
 
 <h1>{{ medley.name }}</h1>
 
-<p>
 {% if medley.type %}
+    <p>
     <b>Type:</b> {{ medley.type }}
 {% endif %}
 
@@ -17,9 +17,9 @@
     <ol>
         {% for relationship in medley.tunemedleyrelationship_set.all|dictsort:"position" %}
             <li>
-                <a href="{% url "tune-detail-view" relationship.tune.id %}">
-                    {{ relationship.tune.name }}
-                </a>
+                <a
+                    href="{% url "tune-detail-view" relationship.tune.id %}"
+                >{{ relationship.tune.name }}</a>
                 <small>({{ relationship.position }})</small>
             </li>
         {% endfor %}
@@ -28,8 +28,8 @@
     There are no tunes in {{ medley.name }}
 {% endif %}
 
-<p>
 {% if medley.notes %}
+    <p>
     <b>Notes:</b> {{ medley.notes }}
 {% endif %}
 
