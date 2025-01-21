@@ -38,7 +38,11 @@
     {{ medley.name }} is a member of the following performances:
     <ul>
     {% for relationship in medley.medleyperformancerelationship_set.all %}
-        <li>{{ relationship.performance.name }}</li>
+        <li>
+            <a
+                href="{% url 'performance-detail-view' relationship.performance.id %}"
+            >{{ relationship.performance.name }}</a>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
