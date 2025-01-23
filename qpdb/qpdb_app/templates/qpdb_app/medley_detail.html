@@ -1,5 +1,5 @@
 <head>
-<title>{{medley.name}} | QuatPatatDB</title>
+<title>{{ medley.name }} | QuatPatatDB</title>
 </head>
 
 <body>
@@ -21,7 +21,6 @@
                     href="{% url "tune-detail-view" relationship.tune.id %}"
                 >{{ relationship.tune.name }}</a>
                 <small>({{ relationship.position }})</small>
-            </li>
         {% endfor %}
     </ol>
 {% else %}
@@ -42,7 +41,6 @@
             <a
                 href="{% url 'performance-detail-view' relationship.performance.id %}"
             >{{ relationship.performance.name }}</a>
-        </li>
     {% endfor %}
     </ul>
 {% else %}
